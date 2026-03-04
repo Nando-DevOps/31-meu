@@ -21,7 +21,9 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/galeria.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="assets/js/main.js"></script>
   </head>
 
@@ -52,21 +54,16 @@
             <span class="sr-only">Abrir menu</span>
             ☰
           </button>
-
-          <div class="lang-toggle" aria-label="Escolher idioma">
-            <button class="lang-switch" data-lang="pt" aria-label="Português">🇧🇷</button>
-            <button class="lang-switch" data-lang="en" aria-label="English">🇺🇸</button>
-          </div>
         </div>
 
         <nav id="nav" class="nav" aria-label="Navegação principal">
             <ul class="nav-list">
-              <li><a href="index.html" data-i18n="nav.home">Início</a></li>
-              <li><a href="galeria.html" data-i18n="nav.gallery">Galeria</a></li>
-              <li><a href="sobre.html" data-i18n="nav.about">Sobre</a></li>
-              <li><a href="localizacao.html" data-i18n="nav.location">Localização</a></li>
-              <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-              <li><a href="contato.html" class="nav-cta" data-i18n="nav.contact">Contato</a></li>
+              <li><a href="index.html">Início</a></li>
+              <li><a href="galeria.html">Galeria</a></li>
+              <li><a href="sobre.html">Sobre</a></li>
+              <li><a href="localizacao.html">Localização</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contato.html" class="nav-cta">Contato</a></li>
             </ul>
         </nav>
       </div>
@@ -83,52 +80,37 @@
             </p>
           </header>
 
-          <!-- CAROUSEL (Bootstrap-style markup, behavior provided by assets/js/main.js) -->
-          <div id="carouselExample" class="carousel slide" data-interval="5000" aria-label="Galeria de fotos">
-            <div class="carousel-indicators">
-              <button type="button" data-slide-to="0" class="active" aria-label="Ir para foto 1"></button>
-              <button type="button" data-slide-to="1" aria-label="Ir para foto 2"></button>
-              <button type="button" data-slide-to="2" aria-label="Ir para foto 3"></button>
-              <button type="button" data-slide-to="3" aria-label="Ir para foto 4"></button>
-              <button type="button" data-slide-to="4" aria-label="Ir para foto 5"></button>
-              <button type="button" data-slide-to="5" aria-label="Ir para foto 6"></button>
-              <button type="button" data-slide-to="6" aria-label="Ir para foto 7"></button>
-              <button type="button" data-slide-to="7" aria-label="Ir para foto 8"></button>
-            </div>
-
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="assets/img/galeria/1.jpg" class="d-block w-100" alt="Salão principal">
+          <!-- Swiper carousel -->
+          <div class="swiper galeria-swiper" aria-label="Galeria de fotos com carrossel">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/1.png" alt="Salão principal" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/2.jpg" class="d-block w-100" alt="Área kids com brinquedos">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/2.png" alt="Área kids com brinquedos" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/3.jpg" class="d-block w-100" alt="Mesa decorada com tema infantil">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/3.png" alt="Mesa decorada com tema infantil" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/4.jpg" class="d-block w-100" alt="Buffet com doces e salgados">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/4.png" alt="Buffet com doces e salgados" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/5.jpg" class="d-block w-100" alt="Espaço recreativo">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/5.png" alt="Espaço recreativo" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/6.jpg" class="d-block w-100" alt="Detalhes da decoração">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/6.png" alt="Detalhes da decoração" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/7.jpg" class="d-block w-100" alt="Área de servir">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/7.png" alt="Área de servir" />
               </div>
-              <div class="carousel-item">
-                <img src="assets/img/galeria/8.jpg" class="d-block w-100" alt="Celebração em andamento">
+              <div class="swiper-slide">
+                <img src="assets/img/galeria/8.png" alt="Celebração em andamento" />
               </div>
             </div>
-
-            <button class="carousel-control-prev" type="button" aria-label="Anterior">
-              ←
-            </button>
-            <button class="carousel-control-next" type="button" aria-label="Próximo">
-              →
-            </button>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </section>
@@ -139,9 +121,9 @@
           <h2>Gostou?</h2>
           <p>Entre em contato para agendar sua festa no 31 MEU.</p>
           <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-            <a href="contato.html" class="btn">Formulário de Contato</a>
+            <!-- <a href="contato.html" class="btn">Formulário de Contato</a> -->
             <a 
-              href="https://wa.me/5541972499945?text=Olá!%20Vi%20a%20galeria%20e%20quero%20agendar%20uma%20festa." 
+              href="https://web.whatsapp.com/send?phone=5541972499945&text=Olá!%20Vi%20a%20galeria%20e%20quero%20agendar%20uma%20festa." 
               target="_blank" 
               rel="noopener noreferrer"
               class="btn btn-outline"
@@ -184,6 +166,6 @@
       </div>
     </footer>
 
-    <!-- carousel behavior handled in assets/js/main.js -->
+    <!-- swiper carousel initialized in assets/js/main.js -->
   </body>
 </html>
