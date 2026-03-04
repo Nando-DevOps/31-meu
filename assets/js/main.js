@@ -61,18 +61,36 @@
     });
   }
 
-  // Open WhatsApp - triggers the desktop app protocol
+  // Open WhatsApp - tries app first, then falls back to web
   function openWhatsApp(message) {
     const phoneNumber = "5541997249945";
     const appUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     
-    // Create a hidden link to trigger the protocol
+    let appBrowserActive = true;
+    
+    // Check if app opened (window loses focus)
+    const onBlur = () => {
+      appBrowserActive = false;
+      window.removeEventListener('blur', onBlur);
+    };
+    window.addEventListener('blur', onBlur);
+    
+    // Try to open app
     const link = document.createElement('a');
     link.href = appUrl;
     link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // If app didn't open after 2 seconds, fallback to web
+    setTimeout(() => {
+      window.removeEventListener('blur', onBlur);
+      if (appBrowserActive) {
+        window.open(webUrl, '_blank');
+      }
+    }, 2000);
   }
 
   // Expose to global scope for onclick handlers
