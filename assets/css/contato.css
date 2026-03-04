@@ -1,0 +1,226 @@
+/* ============================
+   31 MEU - CSS CONTATO
+   ============================ */
+
+/* Estilos específicos para página de contato */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form label span {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.form input,
+.form textarea {
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: var(--transition);
+  background: white;
+  color: #1f2937;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+  background: rgba(0, 188, 212, 0.02);
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn.primary:hover {
+  background: #0097a7;
+  transform: translateY(-2px);
+}
+
+.hp {
+  display: none;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  border-color: var(--accent);
+}
+
+.faq-item summary {
+  padding: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1f2937;
+  background: #f3f4f6;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.faq-item[open] summary {
+  background: var(--accent);
+  color: white;
+}
+
+.faq-item summary:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.faq-body {
+  padding: 16px;
+  background: white;
+  color: #6b7280;
+  line-height: 1.6;
+  border-top: 1px solid #e5e7eb;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-head h1,
+.section-head h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.section-head p {
+  font-size: 16px;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.side-note {
+  padding: 28px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.side-note h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.side-note p {
+  color: #6b7280;
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.side-note a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.side-note a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 20px 0;
+  border: none;
+}
+
+.btn.full {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 880px) {
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 420px) {
+  .two-col {
+    gap: 20px;
+  }
+
+  .form label span {
+    font-size: 13px;
+  }
+
+  .form input,
+  .form textarea {
+    font-size: 16px;
+  }
+
+  .section-head h1,
+  .section-head h2 {
+    font-size: 24px;
+  }
+
+  .side-note {
+    padding: 16px;
+  }
+
+  .faq-item summary {
+    padding: 12px;
+  }
+
+  .faq-body {
+    padding: 12px;
+  }
+}
