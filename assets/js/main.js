@@ -61,11 +61,10 @@
     });
   }
 
-  // Open WhatsApp - tries app first, then web
+  // Open WhatsApp - triggers the desktop app protocol
   function openWhatsApp(message) {
     const phoneNumber = "5541997249945";
     const appUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     
     // Create a hidden link to trigger the protocol
     const link = document.createElement('a');
@@ -74,11 +73,6 @@
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
-    // Fallback to web after 1.5 seconds
-    setTimeout(() => {
-      window.open(webUrl, '_blank');
-    }, 1500);
   }
 
   // Expose to global scope for onclick handlers
