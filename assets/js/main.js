@@ -1,6 +1,6 @@
 // Comportamento do site: menu, lightbox da galeria, formulário WhatsApp e utilitários
 (function(){
-  const PHONE_NUMBER = '5541972499945';
+  const PHONE_NUMBER = "5541997249945";
 
   function qs(sel, ctx=document){return ctx.querySelector(sel)}
   function qsa(sel, ctx=document){return Array.from(ctx.querySelectorAll(sel))}
@@ -60,6 +60,29 @@
       show(current);
     });
   }
+
+  // Open WhatsApp - tries app first, then web
+  function openWhatsApp(message) {
+    const phoneNumber = "5541997249945";
+    const appUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    
+    // Create a hidden link to trigger the protocol
+    const link = document.createElement('a');
+    link.href = appUrl;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback to web after 1.5 seconds
+    setTimeout(() => {
+      window.open(webUrl, '_blank');
+    }, 1500);
+  }
+
+  // Expose to global scope for onclick handlers
+  window.openWhatsApp = openWhatsApp;
 
   document.addEventListener('DOMContentLoaded', () => {
     // menu toggle
@@ -126,8 +149,7 @@
         }
 
         const text = `Olá! Meu nome é ${name}. ${message} (WhatsApp: ${phone})`;
-        const url = `https://web.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+        openWhatsApp(text);
 
         if(status) status.textContent = 'Abrindo WhatsApp...';
       });
