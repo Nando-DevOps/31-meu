@@ -5,42 +5,6 @@
   function qs(sel, ctx=document){return ctx.querySelector(sel)}
   function qsa(sel, ctx=document){return Array.from(ctx.querySelectorAll(sel))}
 
-  // Simple translation dictionary
-  const I18N = {
-    pt: {
-      'nav.home': 'Início',
-      'nav.gallery': 'Galeria',
-      'nav.about': 'Sobre',
-      'nav.location': 'Localização',
-      'nav.faq': 'FAQ',
-      'nav.contact': 'Contato',
-      'hero.title': '31 MEU Buffet Infantil',
-      'hero.lead': 'Espaço completo para festas infantis — segurança, diversão e memórias.',
-      'cta.gallery': 'Ver Galeria',
-      'cta.contact': 'Agendar Visita'
-    },
-    en: {
-      'nav.home': 'Home',
-      'nav.gallery': 'Gallery',
-      'nav.about': 'About',
-      'nav.location': 'Location',
-      'nav.faq': 'FAQ',
-      'nav.contact': 'Contact',
-      'hero.title': '31 MEU Kids Buffet',
-      'hero.lead': 'Complete venue for kids parties — safety, fun and memories.',
-      'cta.gallery': 'View Gallery',
-      'cta.contact': 'Schedule Visit'
-    }
-  };
-
-  function applyTranslations(lang){
-    qsa('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      const txt = (I18N[lang] && I18N[lang][key]) || '';
-      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = txt;
-      else el.textContent = txt;
-    });
-  }
 
   // Carousel initializer for Bootstrap-like markup (vanilla JS)
   function initCarousels(){
@@ -114,23 +78,29 @@
       }));
     }
 
-    // language toggle
-    const saved = localStorage.getItem('site-lang') || 'pt';
-    setLanguage(saved);
-    qsa('.lang-switch').forEach(btn=> btn.addEventListener('click', ()=> setLanguage(btn.getAttribute('data-lang'))));
 
     // set current year
     const yearEl = qs('#year');
     if(yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Gallery lightbox (same behavior)
-    const gallery = qs('.gallery');
-    if(gallery){
-      gallery.addEventListener('click', (e)=>{
-        const fig = e.target.closest('figure');
-        if(!fig) return;
-        const img = fig.querySelector('img');
-        openLightbox(img.src, fig.querySelector('figcaption')?.textContent || '');
+    // Initialize Swiper carousel for galeria
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.galeria-swiper', {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        keyboard: true,
+        a11y: true,
       });
     }
 
@@ -156,7 +126,7 @@
         }
 
         const text = `Olá! Meu nome é ${name}. ${message} (WhatsApp: ${phone})`;
-        const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`;
+        const url = `https://web.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${encodeURIComponent(text)}`;
         window.open(url, '_blank');
 
         if(status) status.textContent = 'Abrindo WhatsApp...';
@@ -211,10 +181,5 @@
     });
   }
 
-  function setLanguage(lang){
-    localStorage.setItem('site-lang', lang);
-    applyTranslations(lang);
-    qsa('.lang-switch').forEach(b=> b.classList.toggle('active', b.getAttribute('data-lang')===lang));
-  }
 
 })();
