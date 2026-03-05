@@ -1,96 +1,26 @@
-// Comportamento do site: menu, lightbox da galeria, formulário WhatsApp e utilitários
+// Comportamento do site: menu, carousel, WhatsApp e utilitários
 (function(){
-  const PHONE_NUMBER = "5541997249945";
 
   function qs(sel, ctx=document){return ctx.querySelector(sel)}
   function qsa(sel, ctx=document){return Array.from(ctx.querySelectorAll(sel))}
 
-
-  // Carousel initializer for Bootstrap-like markup (vanilla JS)
-  function initCarousels(){
-    qsa('.carousel.slide').forEach(carousel => {
-      const inner = qs('.carousel-inner', carousel);
-      if(!inner) return;
-      const items = qsa('.carousel-item', inner);
-      let current = items.findIndex(i => i.classList.contains('active'));
-      if(current === -1) current = 0;
-      const interval = parseInt(carousel.getAttribute('data-interval') || '5000', 10);
-      let timer = null;
-
-      function show(index){
-        index = (index + items.length) % items.length;
-        items.forEach((it, i)=> it.classList.toggle('active', i===index));
-        const indicators = qsa('.carousel-indicators [data-slide-to]', carousel);
-        indicators.forEach(ind => ind.classList.toggle('active', Number(ind.getAttribute('data-slide-to'))===index));
-        current = index;
-      }
-
-      function next(){ show(current+1); }
-      function prev(){ show(current-1); }
-
-      // indicators
-      qsa('.carousel-indicators [data-slide-to]', carousel).forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const idx = Number(btn.getAttribute('data-slide-to'));
-          show(idx);
-          reset();
-        });
-      });
-
-      // controls
-      qsa('.carousel-control-prev, .carousel-control-next', carousel).forEach(ctrl=>{
-        ctrl.addEventListener('click', (e)=>{
-          e.preventDefault();
-          if(ctrl.classList.contains('carousel-control-prev')) prev(); else next();
-          reset();
-        });
-      });
-
-      carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
-      carousel.addEventListener('mouseleave', ()=> start());
-
-      document.addEventListener('keydown', (e)=>{
-        if(e.key === 'ArrowRight') next();
-        if(e.key === 'ArrowLeft') prev();
-      });
-
-      function start(){ if(timer) clearInterval(timer); timer = setInterval(next, interval); }
-      function reset(){ clearInterval(timer); start(); }
-      start();
-      show(current);
-    });
+  // Open WhatsApp using official wa.me API
+  function openWhatsApp(message) {
+    const phoneNumber = CONFIG.PHONE;
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
   }
 
-  // Open WhatsApp - tries app first, then falls back to web
-  function openWhatsApp(message) {
-    const phoneNumber = "5541997249945";
-    const appUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    
-    let appBrowserActive = true;
-    
-    // Check if app opened (window loses focus)
-    const onBlur = () => {
-      appBrowserActive = false;
-      window.removeEventListener('blur', onBlur);
-    };
-    window.addEventListener('blur', onBlur);
-    
-    // Try to open app
-    const link = document.createElement('a');
-    link.href = appUrl;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // If app didn't open after 2 seconds, fallback to web
-    setTimeout(() => {
-      window.removeEventListener('blur', onBlur);
-      if (appBrowserActive) {
-        window.open(webUrl, '_blank');
-      }
-    }, 2000);
+  // Build WhatsApp message with language support
+  function buildWhatsAppMessage(name, phone, message) {
+    // Clean message: remove extra whitespace and multiple line breaks
+    const cleanMsg = String(message || '')
+      .replace(/\s+\n/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+
+    // Format message with better structure
+    return `Olá! Meu nome é ${name}.\nWhatsApp: ${phone}\n\nDetalhes:\n${cleanMsg}`;
   }
 
   // Expose to global scope for onclick handlers
@@ -145,9 +75,18 @@
     if(form){
       form.addEventListener('submit', (ev)=>{
         ev.preventDefault();
+
+        // Honeypot anti-spam check
         const website = qs('#websiteInput');
         if(website && website.value.trim() !== ''){
-          if(status) status.textContent = 'Envio rejeitado.';
+          if(status) status.textContent = 'Envio rejeitado (anti-spam).';
+          return;
+        }
+
+        // HTML5 validation
+        if(!form.checkValidity()){
+          if(status) status.textContent = 'Confira os campos obrigatórios antes de enviar.';
+          form.reportValidity();
           return;
         }
 
@@ -155,15 +94,12 @@
         const phone = qs('#phoneInput')?.value.trim() || '';
         const message = qs('#messageInput')?.value.trim() || '';
 
-        if(!name || !phone || !message){
-          if(status) status.textContent = 'Preencha todos os campos.';
-          return;
-        }
-
-        const text = `Olá! Meu nome é ${name}. ${message} (WhatsApp: ${phone})`;
-        openWhatsApp(text);
+        // Build clean message
+        const whatsappText = buildWhatsAppMessage(name, phone, message);
+        openWhatsApp(whatsappText);
 
         if(status) status.textContent = 'Abrindo WhatsApp...';
+        form.reset();
       });
     }
 
@@ -183,9 +119,6 @@
         }
       });
     }
-
-    // initialize any carousels
-    initCarousels();
   });
 
   // Lightbox helpers
