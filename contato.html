@@ -1,218 +1,182 @@
 <!doctype html>
 <html lang="pt-BR" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contato | 31 MEU Buffet Infantil</title>
-    <meta
-      name="description"
-      content="Entre em contato com o 31 MEU Buffet Infantil. Envie seu orçamento ou agende uma visita."
-    />
-    <meta name="theme-color" content="#00bcd4" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="og:title" content="Contato - 31 MEU Buffet Infantil" />
-    <meta
-      property="og:description"
-      content="Solicite um orçamento ou agende uma visita."
-    />
-    <meta property="og:type" content="website" />
+  <title>Contato | 31 MEU Buffet Infantil</title>
+  <meta name="description"
+    content="Entre em contato com o 31 MEU Buffet Infantil. Envie seu orçamento ou agende uma visita." />
+  <meta name="theme-color" content="#00bcd4" />
 
-    <script>
-      document.documentElement.classList.add("js");
-    </script>
+  <meta property="og:title" content="Contato - 31 MEU Buffet Infantil" />
+  <meta property="og:description" content="Solicite um orçamento ou agende uma visita." />
+  <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script defer src="assets/js/config.js"></script>
-    <script defer src="assets/js/main.js"></script>
-    <link rel="stylesheet" href="assets/css/contato.css" />
-  </head>
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
 
-  <body>
-    <a
-      class="skip-link"
-      href="#conteudo"
-      aria-label="Pular para o conteúdo"
-      title="Pular para o conteúdo"
-      >↑</a
-    >
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/config.js"></script>
+  <script defer src="assets/js/main.js"></script>
+  <link rel="stylesheet" href="assets/css/contato.css" />
+</head>
 
-    <header class="site-header" id="topo">
-      <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="Voltar para home">
-          <img
-            class="brand-logo"
-            src="assets/img/logo_128.png"
-            width="48"
-            height="48"
-            alt="Logo 31 MEU Buffet Infantil"
-          />
-          <span class="brand-name">ESPAÇO DE EVENTOS INFANTIS</span>
-        </a>
+<body>
+  <a class="skip-link" href="#conteudo" aria-label="Pular para o conteúdo" title="Pular para o conteúdo">↑</a>
 
-        <div class="header-actions">
-          <button
-            class="menu-btn"
-            type="button"
-            aria-expanded="false"
-            aria-controls="nav"
-            aria-label="Abrir menu"
-          >
-            <span class="sr-only">Abrir menu</span>
-            ☰
-          </button>
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Voltar para home">
+        <img class="brand-logo" src="assets/img/logo_128.png" width="48" height="48"
+          alt="Logo 31 MEU Buffet Infantil" />
+        <span class="brand-name">ESPAÇO DE EVENTOS INFANTIS</span>
+      </a>
+
+      <div class="header-actions">
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+          <span class="sr-only">Abrir menu</span>
+          ☰
+        </button>
+      </div>
+
+      <nav id="nav" class="nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="pacotes.html">Pacotes</a></li>
+          <li><a href="localizacao.html">Localização</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html" class="nav-cta">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <!-- FORMULÁRIO DE CONTATO -->
+    <section class="section" aria-labelledby="contatoTitle">
+      <div class="container two-col">
+        <div>
+          <header class="section-head">
+            <h1 id="contatoTitle">Entre em Contato</h1>
+            <p class="muted">
+              Envie uma mensagem e abra o WhatsApp com o texto pronto. Ou
+              preencha o formulário abaixo.
+            </p>
+          </header>
+
+          <form class="form" id="contactForm" novalidate>
+            <p id="formStatus" class="muted small" aria-live="polite"></p>
+
+            <label for="nameInput">
+              <span>Nome</span>
+              <input id="nameInput" name="name" type="text" required autocomplete="name" />
+            </label>
+
+            <label for="phoneInput">
+              <span>WhatsApp</span>
+              <input id="phoneInput" name="phone" type="tel" required inputmode="tel" autocomplete="tel"
+                placeholder="(41) 99999-9999" pattern="[\\d\\s()+-]{8,}" />
+            </label>
+
+            <label for="messageInput">
+              <span>Mensagem</span>
+              <textarea id="messageInput" name="message" rows="4" required
+                placeholder="Data: ____ &#10;Idade da criança: ____ &#10;Número de convidados: ____ &#10;Observações: "></textarea>
+            </label>
+
+            <!-- Honeypot anti-spam -->
+            <div class="hp" aria-hidden="true">
+              <label for="websiteInput">Website</label>
+              <input id="websiteInput" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button class="btn primary" type="submit">ENVIAR</button>
+            <p class="muted small">
+              Dica: informe data, idade e convidados para resposta mais
+              rápida.
+            </p>
+          </form>
         </div>
 
-        <nav id="nav" class="nav" aria-label="Navegação principal">
-          <ul class="nav-list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="pacotes.html">Pacotes</a></li>
-            <li><a href="localizacao.html">Localização</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html" class="nav-cta">Contato</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+        <aside class="side-note" aria-label="Informações adicionais">
+          <h3>Contato Rápido</h3>
+          <p class="muted">Clique para chamar no WhatsApp.</p>
 
-    <main id="conteudo" tabindex="-1">
-      <!-- FORMULÁRIO DE CONTATO -->
-      <section class="section" aria-labelledby="contatoTitle">
-        <div class="container two-col">
-          <div>
-            <header class="section-head">
-              <h1 id="contatoTitle">Entre em Contato</h1>
-              <p class="muted">
-                Envie uma mensagem e abra o WhatsApp com o texto pronto. Ou
-                preencha o formulário abaixo.
-              </p>
-            </header>
-
-            <form class="form" id="contactForm" novalidate>
-              <p id="formStatus" class="muted small" aria-live="polite"></p>
-
-              <label for="nameInput">
-                <span>Nome</span>
-                <input
-                  id="nameInput"
-                  name="name"
-                  type="text"
-                  required
-                  autocomplete="name"
-                />
-              </label>
-
-              <label for="phoneInput">
-                <span>WhatsApp</span>
-                <input
-                  id="phoneInput"
-                  name="phone"
-                  type="tel"
-                  required
-                  inputmode="tel"
-                  autocomplete="tel"
-                  placeholder="(41) 99999-9999"
-                  pattern="[\\d\\s()+-]{8,}"
-                />
-              </label>
-
-              <label for="messageInput">
-                <span>Mensagem</span>
-                <textarea
-                  id="messageInput"
-                  name="message"
-                  rows="4"
-                  required
-                  placeholder="Data: ____ &#10;Idade da criança: ____ &#10;Número de convidados: ____ &#10;Observações: "
-                ></textarea>
-              </label>
-
-              <!-- Honeypot anti-spam -->
-              <div class="hp" aria-hidden="true">
-                <label for="websiteInput">Website</label>
-                <input
-                  id="websiteInput"
-                  type="text"
-                  name="website"
-                  tabindex="-1"
-                  autocomplete="off"
-                />
-              </div>
-
-              <button class="btn primary" type="submit">ENVIAR</button>
-              <p class="muted small">
-                Dica: informe data, idade e convidados para resposta mais
-                rápida.
-              </p>
-            </form>
-          </div>
-
-          <aside class="side-note" aria-label="Informações adicionais">
-            <h3>Contato Rápido</h3>
-            <p class="muted">Clique para chamar no WhatsApp.</p>
-
-            <a
-              href="#"
-              onclick="
+          <a href="#" onclick="
                 openWhatsApp(
                   'Olá! Quero orçar uma festa. Data: ____ | Idade: ____ | Convidados: ____',
                 );
                 return false;
-              "
-              class="btn full primary"
-            >
-              CHAMAR NO WHATSAPP
-            </a>
+              " class="btn full primary">
+            CHAMAR NO WHATSAPP
+          </a>
 
-            <div class="divider" role="separator" aria-hidden="true"></div>
+          <div class="divider" role="separator" aria-hidden="true"></div>
 
-            <h3>Endereço</h3>
-            <p class="muted">
-              <strong
-                >R. Benjamin Zampieri Parizi, 77 - Santa Felicidade, Curitiba -
-                PR, 82400-090</strong
-              >
-            </p>
+          <h3>Endereço</h3>
+          <p class="muted">
+            <strong>R. Benjamin Zampieri Parizi, 77 - Santa Felicidade, Curitiba -
+              PR, 82400-090</strong>
+          </p>
 
-            <a
-              class="btn full primary"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.google.com/maps/dir/?api=1&destination=R.%20Benjamin%20Zampieri%20Parizi%2C%2077%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090"
-            >
-              VER NO MAPA
-            </a>
+          <a class="btn full primary" target="_blank" rel="noopener noreferrer"
+            href="https://www.google.com/maps/dir/?api=1&destination=R.%20Benjamin%20Zampieri%20Parizi%2C%2077%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090">
+            VER NO MAPA
+          </a>
 
-            <div class="divider" role="separator" aria-hidden="true"></div>
+          <div class="divider" role="separator" aria-hidden="true"></div>
 
-            <h3>Informações</h3>
-            <p class="text-break muted">
-              <strong>Telefone:</strong>
-              <a href="tel:+5541997249945">(41) 97249-9945</a>
-            </p>
-            <p class="small muted">
-              <strong>Instagram:</strong>
-              <a
-                href="https://www.instagram.com/31meubuffet/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >@31meubuffet</a
-              >
-            </p>
-            <p class="small muted">
-              <strong>Facebook:</strong>
-              <a
-                href="https://www.facebook.com/Buffet31meu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >31 MEU - Buffet Infantil</a
-              >
-            </p>
-          </aside>
-        </div>
-      </section>
-    </main>
-  </body>
+          <h3>Informações</h3>
+          <p class="text-break muted">
+            <strong>Telefone:</strong>
+            <a href="tel:+5541997249945">(41) 97249-9945</a>
+          </p>
+          <p class="small muted">
+            <strong>Instagram:</strong>
+            <a href="https://www.instagram.com/31meubuffet/" target="_blank" rel="noopener noreferrer">@31meubuffet</a>
+          </p>
+          <p class="small muted">
+            <strong>Facebook:</strong>
+            <a href="https://www.facebook.com/Buffet31meu/" target="_blank" rel="noopener noreferrer">31 MEU - Buffet
+              Infantil</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="small muted">
+          © <span id="year"></span> 31 MEU Buffet Infantil.
+        </p>
+        <a class="small" href="#topo">Voltar ao topo</a>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/31meubuffet/" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram" class="social-link" title="Visite nosso Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.8 2h8.4C19.4 2 22 4.6 22 8.2v8.4c0 3.6-2.6 6.2-6.2 6.2H7.8C4.2 20.4 2 17.8 2 14.2V8.2C2 4.6 4.6 2 8.2 2z M7.8 4c-2.4 0-4.2 1.8-4.2 4.2v8.4c0 2.4 1.8 4.2 4.2 4.2h8.4c2.4 0 4.2-1.8 4.2-4.2V8.2c0-2.4-1.8-4.2-4.2-4.2H7.8z M12 6.5c3 0 5.5 2.5 5.5 5.5s-2.5 5.5-5.5 5.5-5.5-2.5-5.5-5.5 2.5-5.5 5.5-5.5z M12 8.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z M17.5 5.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5 .7-1.5 1.5-1.5z" />
+          </svg>
+        </a>
+
+        <a href="https://www.facebook.com/Buffet31meu/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+          class="social-link" title="Visite nosso Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
