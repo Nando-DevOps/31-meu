@@ -1019,7 +1019,8 @@ body {
   margin-top: 18px;
 }
 
-.package-btn {
+.package-btn,
+.package-link {
   min-width: 220px;
   text-align: center;
 }
@@ -1378,6 +1379,211 @@ body {
     .package-showcase-block h3,
     .package-showcase-extra h3 {
       font-size: 1.45rem;
+    }
+  }
+
+  /* ============================
+     PAGE: PACOTE PREMIUM
+     ============================ */
+  .package-detail-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 0 64px;
+    background:
+      radial-gradient(circle at top left, rgba(128, 222, 234, 0.35), transparent 180px),
+      radial-gradient(circle at top right, rgba(255, 224, 130, 0.35), transparent 180px),
+      linear-gradient(180deg, #fffdf8 0%, #ffffff 100%);
+  }
+
+  .package-detail-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .package-detail-kicker {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(0, 188, 212, 0.12);
+    color: var(--accent-dark);
+    border: 1px solid rgba(0, 188, 212, 0.16);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .package-detail-hero h1 {
+    margin: 0 0 14px;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--accent-dark);
+  }
+
+  .package-detail-lead {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #374151;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .package-detail-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .package-detail-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #fff;
+    color: #1f2937;
+    border: 1px solid #d7eef1;
+    box-shadow: var(--shadow-xs);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .package-detail-section {
+    padding-top: 28px;
+  }
+
+  .package-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .package-detail-card {
+    background: #fff;
+    border: 1px solid #e8f5f7;
+    border-radius: 22px;
+    padding: 24px 22px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .package-detail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .package-detail-card h2,
+  .package-detail-highlight h2,
+  .package-detail-optional h2,
+  .package-detail-note h2 {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .package-detail-card p,
+  .package-detail-highlight p,
+  .package-detail-note p {
+    margin: 0;
+    color: #1f2937;
+    line-height: 1.75;
+  }
+
+  .package-detail-highlight {
+    margin-top: 24px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.08), rgba(255, 224, 130, 0.14));
+    border: 1px solid #e3f3f6;
+    padding: 24px 22px;
+  }
+
+  .package-detail-optional {
+    margin-top: 24px;
+    background: #eef9fa;
+    border-radius: 24px;
+    padding: 24px 22px;
+  }
+
+  .package-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .package-detail-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #d7eef1;
+    color: #1f2937;
+    font-size: 14px;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .package-detail-note {
+    margin-top: 24px;
+    background: #f3f4f6;
+    border-left: 4px solid var(--accent);
+    border-radius: 18px;
+    padding: 24px 22px;
+  }
+
+  .package-detail-note p+p {
+    margin-top: 12px;
+  }
+
+  .package-detail-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 900px) {
+    .package-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .package-detail-hero {
+      padding: 72px 0 52px;
+    }
+
+    .package-detail-lead {
+      font-size: 1.05rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .package-detail-hero {
+      padding: 56px 0 42px;
+    }
+
+    .package-detail-card,
+    .package-detail-highlight,
+    .package-detail-optional,
+    .package-detail-note {
+      padding: 20px 16px;
+      border-radius: 18px;
+    }
+
+    .package-detail-tags span {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .package-detail-actions .btn {
+      width: 100%;
+      text-align: center;
     }
   }
 }
