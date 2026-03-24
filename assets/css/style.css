@@ -1586,4 +1586,108 @@ body {
       text-align: center;
     }
   }
+
+  .titulo-pincel {
+    text-align: center;
+    margin: 0;
+  }
+
+  .titulo-pincel span {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.2em;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #7ed6de;
+    line-height: 1.1;
+    z-index: 1;
+  }
+
+  .titulo-pincel span::before,
+  .titulo-pincel span::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+
+  .titulo-pincel span::before {
+    left: -10px;
+    right: -10px;
+    bottom: 0.05em;
+    height: 0.42em;
+    background: #f7d28a;
+    border-radius: 30px;
+    transform: rotate(-2deg);
+  }
+
+  .titulo-pincel span::after {
+    left: -4px;
+    right: -2px;
+    bottom: 0.12em;
+    height: 0.32em;
+    background: #f2c86f;
+    border-radius: 30px;
+    transform: rotate(1deg);
+    opacity: 0.85;
+  }
+
+  /* =========================
+     PACOTE ESCOLAR - VISUAL LÚDICO
+     ========================= */
+    .package-detail-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+  
+    .package-detail-block {
+      margin-bottom: 32px;
+      text-align: center;
+    }
+  
+    .package-detail-block h2 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      color: var(--accent);
+    }
+  
+    .package-detail-block--highlight {
+      background: #f3f8f8;
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+  
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 720px;
+      display: grid;
+      gap: 10px;
+    }
+  
+    .detail-list li {
+      color: #1f2937;
+      line-height: 1.6;
+    }
+  
+    .detail-list--center li {
+      text-align: center;
+    }
+  
+    .package-detail-note {
+      margin-top: 36px;
+    }
+  
+    @media (max-width: 768px) {
+      .package-detail-block h2 {
+        font-size: 24px;
+      }
+  
+      .detail-list {
+        gap: 8px;
+      }
+    }
+
+
 }
