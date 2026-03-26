@@ -1,0 +1,98 @@
+/* ============================
+   PAGE: SOBRE
+   ============================ */
+
+.about-hero {
+    text-align: center;
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+        color: #fff;
+}
+
+.about-hero p {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.about-hero .section-head h1,
+.about-hero .section-head p {
+    color: #ffffff;
+}
+
+.about-intro {
+    max-width: 860px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.about-intro p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.about-mission {
+    max-width: 860px;
+    margin: 0 auto 40px;
+    padding: 24px;
+    background: var(--surface-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.about-mission:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.about-mission h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--accent);
+}
+
+.about-mission p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.about-grid {
+    margin-top: 40px;
+}
+
+.about-grid .card {
+    text-align: center;
+}
+
+.about-grid .card h3 {
+    margin-top: 0;
+}
+
+.about-grid .card p {
+    color: var(--text);
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.about-cta .btn {
+    min-width: 220px;
+}
+
+@media (max-width: 420px) {
+    .about-mission {
+        padding: 18px;
+        margin-bottom: 32px;
+    }
+
+    .about-cta .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

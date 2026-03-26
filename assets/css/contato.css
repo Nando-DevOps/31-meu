@@ -1,226 +1,103 @@
 /* ============================
-   31 MEU - CSS CONTATO
+   PAGE: CONTATO
    ============================ */
 
-/* Estilos específicos para página de contato */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form label span {
-  font-weight: 600;
-  color: #1f2937;
-  font-size: 14px;
-}
-
-.form input,
-.form textarea {
-  padding: 12px 16px;
-  border: 2px solid #e5e7eb;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 14px;
-  transition: var(--transition);
-  background: white;
-  color: #1f2937;
-}
-
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
-  background: rgba(0, 188, 212, 0.02);
-}
-
-.form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.btn.primary {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.btn.primary:hover {
-  background: #0097a7;
-  transform: translateY(-2px);
-}
-
-.hp {
-  display: none;
-}
-
-.faq {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.faq-item {
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: var(--transition);
-}
-
-.faq-item:hover {
-  border-color: var(--accent);
-}
-
-.faq-item summary {
-  padding: 16px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #1f2937;
-  background: #f3f4f6;
-  transition: var(--transition);
-  user-select: none;
-}
-
-.faq-item[open] summary {
-  background: var(--accent);
-  color: white;
-}
-
-.faq-item summary:hover {
-  background: var(--accent);
-  color: white;
-}
-
-.faq-body {
-  padding: 16px;
-  background: white;
-  color: #6b7280;
-  line-height: 1.6;
-  border-top: 1px solid #e5e7eb;
-}
-
-.section-head {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.section-head h1,
-.section-head h2 {
-  font-size: 32px;
-  margin-bottom: 12px;
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.section-head p {
-  font-size: 16px;
-  color: #6b7280;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.two-col {
+.contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 32px;
   align-items: start;
 }
 
-.side-note {
-  padding: 28px;
-  background: #f3f4f6;
-  border-radius: 12px;
-  border-left: 4px solid var(--accent);
+.contact-card {
+  height: 100%;
 }
 
-.side-note h3 {
-  font-size: 18px;
-  color: #1f2937;
-  margin-bottom: 12px;
+.contact-card h2,
+.contact-card h3 {
   margin-top: 0;
 }
 
-.side-note p {
-  color: #6b7280;
-  margin: 0 0 16px 0;
-  font-size: 14px;
-  line-height: 1.6;
+.contact-card p {
+  line-height: 1.7;
 }
 
-.side-note a {
+.contact-info {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-info-item {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.contact-info-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact-info-item strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.contact-info-item a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
 }
 
-.side-note a:hover {
+.contact-info-item a:hover {
   text-decoration: underline;
 }
 
-.divider {
-  height: 1px;
-  background: #e5e7eb;
-  margin: 20px 0;
-  border: none;
+.contact-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
 }
 
-.btn.full {
-  display: block;
-  width: 100%;
+.contact-status {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.contact-note {
+  margin-top: 20px;
+  padding: 18px;
+  background: var(--surface-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+}
+
+.contact-note p {
+  margin: 0;
+}
+
+.contact-form .btn,
+.contact-card .btn.full {
+  margin-top: 4px;
 }
 
 @media (max-width: 880px) {
-  .two-col {
+  .contact-layout {
     grid-template-columns: 1fr;
-    gap: 32px;
   }
 }
 
 @media (max-width: 420px) {
-  .two-col {
-    gap: 20px;
-  }
-
-  .form label span {
-    font-size: 13px;
-  }
-
-  .form input,
-  .form textarea {
-    font-size: 16px;
-  }
-
-  .section-head h1,
-  .section-head h2 {
-    font-size: 24px;
-  }
-
-  .side-note {
+  .contact-note {
     padding: 16px;
   }
 
-  .faq-item summary {
-    padding: 12px;
-  }
-
-  .faq-body {
-    padding: 12px;
+  .contact-form .btn,
+  .contact-card .btn.full {
+    width: 100%;
+    text-align: center;
   }
 }

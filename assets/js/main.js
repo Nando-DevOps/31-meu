@@ -3,18 +3,29 @@
   function qs(sel, ctx = document) {
     return ctx.querySelector(sel);
   }
+
   function qsa(sel, ctx = document) {
     return Array.from(ctx.querySelectorAll(sel));
   }
 
+  function getPhoneNumber() {
+    return typeof CONFIG !== "undefined" && CONFIG.PHONE ? CONFIG.PHONE : "";
+  }
+
   // Open WhatsApp using official wa.me API
   function openWhatsApp(message) {
-    const phoneNumber = CONFIG.PHONE;
+    const phoneNumber = getPhoneNumber();
+
+    if (!phoneNumber) {
+      console.error("CONFIG.PHONE não foi definido.");
+      return;
+    }
+
     const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
   }
 
-  // Build WhatsApp message with language support
+  // Build WhatsApp message
   function buildWhatsAppMessage(name, phone, message) {
     const cleanMsg = String(message || "")
       .replace(/\s+\n/g, "\n")
@@ -28,30 +39,50 @@
   window.openWhatsApp = openWhatsApp;
 
   document.addEventListener("DOMContentLoaded", () => {
-    // menu toggle
     const menuBtn = qs(".menu-btn");
     const nav = qs("#nav");
+    const header = qs(".site-header");
+
+    // Menu toggle
     if (menuBtn && nav) {
       menuBtn.addEventListener("click", () => {
-        const open = nav.classList.toggle("open");
-        menuBtn.setAttribute("aria-expanded", String(open));
+        const isOpen = nav.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
       });
 
-      // close menu when clicking a link
-      qsa(".nav-list a").forEach((a) =>
-        a.addEventListener("click", () => {
+      // Close menu when clicking a nav link
+      qsa(".nav-list a", nav).forEach((link) => {
+        link.addEventListener("click", () => {
           nav.classList.remove("open");
           menuBtn.setAttribute("aria-expanded", "false");
-        }),
-      );
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (event) => {
+        const clickedInsideMenu = nav.contains(event.target);
+        const clickedMenuBtn = menuBtn.contains(event.target);
+
+        if (
+          !clickedInsideMenu &&
+          !clickedMenuBtn &&
+          nav.classList.contains("open")
+        ) {
+          nav.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
     }
 
-    // set current year
+    // Set current year
     const yearEl = qs("#year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
     // Initialize Swiper carousel for galeria
-    if (typeof Swiper !== "undefined") {
+    const galeriaSwiper = qs(".galeria-swiper");
+    if (typeof Swiper !== "undefined" && galeriaSwiper) {
       new Swiper(".galeria-swiper", {
         loop: true,
         autoplay: {
@@ -74,6 +105,7 @@
     // Form submit -> open WhatsApp
     const form = qs("#contactForm");
     const status = qs("#formStatus");
+
     if (form) {
       form.addEventListener("submit", (ev) => {
         ev.preventDefault();
@@ -81,15 +113,18 @@
         // Honeypot anti-spam check
         const website = qs("#websiteInput");
         if (website && website.value.trim() !== "") {
-          if (status) status.textContent = "Envio rejeitado (anti-spam).";
+          if (status) {
+            status.textContent = "Envio rejeitado (anti-spam).";
+          }
           return;
         }
 
         // HTML5 validation
         if (!form.checkValidity()) {
-          if (status)
+          if (status) {
             status.textContent =
               "Confira os campos obrigatórios antes de enviar.";
+          }
           form.reportValidity();
           return;
         }
@@ -101,12 +136,15 @@
         const whatsappText = buildWhatsAppMessage(name, phone, message);
         openWhatsApp(whatsappText);
 
-        if (status) status.textContent = "Abrindo WhatsApp...";
+        if (status) {
+          status.textContent = "Abrindo WhatsApp...";
+        }
+
         form.reset();
       });
     }
 
-    // botões dos pacotes -> abrir WhatsApp com pacote selecionado
+    // Package buttons -> open WhatsApp with selected package
     qsa(".package-btn").forEach((button) => {
       button.addEventListener("click", (event) => {
         event.preventDefault();
@@ -120,19 +158,46 @@
       });
     });
 
-    // keyboard: close lightbox with Esc
+    // Close lightbox / menu with Escape
     document.addEventListener("keyup", (e) => {
-      if (e.key === "Escape") closeLightbox();
+      if (e.key === "Escape") {
+        closeLightbox();
+
+        if (nav && menuBtn && nav.classList.contains("open")) {
+          nav.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded", "false");
+          menuBtn.focus();
+        }
+      }
     });
 
-    // focus management for skip-link
+    // Focus management for skip-link
     const skip = qs(".skip-link");
+
     if (skip) {
-      skip.addEventListener("click", () => {
+      skip.addEventListener("click", (e) => {
+        e.preventDefault();
+
         const target = qs(skip.getAttribute("href"));
+        const headerHeight = header ? header.offsetHeight : 0;
+
         if (target) {
-          target.setAttribute("tabindex", "-1");
-          target.focus();
+          if (!target.hasAttribute("tabindex")) {
+            target.setAttribute("tabindex", "-1");
+          }
+
+          const targetTop =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight -
+            12;
+
+          window.scrollTo({
+            top: targetTop,
+            behavior: "smooth",
+          });
+
+          target.focus({ preventScroll: true });
         }
       });
     }
@@ -143,6 +208,7 @@
 
   function openLightbox(src, caption) {
     closeLightbox();
+
     const wrap = document.createElement("div");
     wrap.className = "image-lightbox";
     wrap.innerHTML = `
@@ -151,9 +217,13 @@
         <div class="caption">${escapeHtml(caption)}</div>
       </div>
     `;
+
     wrap.addEventListener("click", (e) => {
-      if (e.target === wrap) closeLightbox();
+      if (e.target === wrap) {
+        closeLightbox();
+      }
     });
+
     document.body.appendChild(wrap);
     currentLightbox = wrap;
     wrap.tabIndex = -1;
