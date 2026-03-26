@@ -19,6 +19,7 @@
     </script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/pacotes.css" />
     <script defer src="assets/js/config.js"></script>
     <script defer src="assets/js/main.js"></script>
 </head>
@@ -56,35 +57,29 @@
         </div>
     </header>
 
-    <main id="conteudo" tabindex="-1">
-        <section class="section" style="
-          background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-          color: white;
-          padding: 60px 20px;
-          text-align: center;
-        ">
-            <div class="container">
-                <h1 style="font-size: 40px; margin-bottom: 16px; font-weight: 700">
-                    Pacotes para cada tipo de comemoração
-                </h1>
-                <p style="font-size: 18px; opacity: 0.95">
-                    Escolha a opção que mais combina com a sua festa.
-                <p>Trabalhamos com pacotes completos e personalizados, pensados para unir diversão para
-                    as crianças e conforto para toda a família.
+  <main id="conteudo" tabindex="-1">
+    <section class="section about-hero">
+        <div class="container">
+            <header class="section-head">
+                <h1>Escolha o pacote ideal</h1>
+                <p>
+                    Cada opção foi pensada para oferecer uma experiência especial, com
+                    diferentes níveis de personalização e praticidade.
                 </p>
-            </div>
-        </section>
+            </header>
+        </div>
+    </section>
 
         <section class="section">
             <div class="container">
                 <div class="grid-3 packages-grid">
-
-                    <!--Pacote Escolar-->
+                    <!-- Pacote Escolar -->
                     <article class="package-item">
                         <div class="card package-card">
                             <h2>Escolar</h2>
-                            <p>E pro pequeno que, depois da aula, tem ainda
-                                muita diversão!
+                            <p class="muted small">Segunda à quinta-feira</p>
+                            <p>
+                                Para o pequeno que, depois da aula, ainda tem muita diversão.
                             </p>
 
                             <ul class="package-list">
@@ -92,29 +87,33 @@
                                 <li>Salgados, assados, doces e bolo</li>
                                 <li>Lanchonete kids e bebidas</li>
                                 <li>Tema decorativo, centro de mesa e lembrancinhas</li>
-                                <li>Vídeo Retrospectiva</li>
-                                <li>Festa pensada para até 15 adultos e 30 crianças, de segunda à quinta-feira</li>
+                                <li>Vídeo retrospectiva</li>
+                                <li>Ideal para até 15 adultos e 30 crianças</li>
                             </ul>
 
                             <div class="package-footer">
                                 <p><strong>Duração:</strong> 3h + 30min de tolerância</p>
-                                <p><strong>Convidados:</strong> sob consulta</p>
+                                <p>
+                                    <strong>Convidados:</strong> até 15 adultos e 30 crianças
+                                </p>
                             </div>
                         </div>
 
                         <div class="package-action">
-                            <a class="btn package-link" href="pacote-escolar.html">Saiba mais</a>
+                            <a class="btn package-link" href="pacote-escolar.html">
+                                Saiba mais
+                            </a>
                         </div>
                     </article>
 
-                    <!--Pacote Pocket-->
+                    <!-- Pacote Pocket -->
                     <article class="package-item">
                         <div class="card package-card">
-
                             <h2>Pocket</h2>
+                            <p class="muted small">Mais acessível</p>
                             <p>
-                                Pra você que procura por algo completo e
-                                acessível para curtir o dia do seu pequeno!
+                                Para quem procura uma opção completa e equilibrada para curtir
+                                o dia do seu pequeno.
                             </p>
 
                             <ul class="package-list">
@@ -123,41 +122,7 @@
                                 <li>Doces, bolo, lanchonete kids e bebidas</li>
                                 <li>Mesa de café</li>
                                 <li>Tema decorativo, centro de mesa e lembrancinhas</li>
-                                <li>Vídeo Retrospectiva</li>
-                            </ul>
-
-                            <div class="package-footer">
-                                <p><strong>Duração:</strong> 3h + 30min em dias úteis / 4h + 30min em fins de semana
-                                    e feriados</p>
-                                <p><strong>Convidados:</strong> sob consulta</p>
-                            </div>
-                        </div>
-
-
-                        <div class="package-action">
-                            <a class="btn package-link" href="pacote-pocket.html">
-                                Saiba mais
-                            </a>
-                        </div>
-                    </article>
-
-                    <!--Pacote Premium-->
-                    <article class="package-item">
-                        <div class="card package-card">
-                            <h2>Premium</h2>
-                            <p>
-                                Pra você que busca por uma festa dos sonhos e
-                                zero preocupação!
-                            </p>
-
-                            <ul class="package-list">
-                                <li>Estrutura completa do espaço e equipe</li>
-                                <li>Entrada, salgados, assados e finger food (petiscos)</li>
-                                <li>Doces, bolo, lanchonete kids e bebidas</li>
-                                <li>Mesa de café e carrinho de guloseimas</li>
-                                <li>Festa personalizada, doces decorados e kit papelaria</li>
-                                <li>Vídeo Retrospectiva</li>
-                                <li>Cobertura fotográfica</li>
+                                <li>Vídeo retrospectiva</li>
                             </ul>
 
                             <div class="package-footer">
@@ -170,34 +135,90 @@
                         </div>
 
                         <div class="package-action">
-                            <a class="btn package-link" href="pacote-premium.html">Saiba mais</a>
+                            <a class="btn package-link" href="pacote-pocket.html">
+                                Saiba mais
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Pacote Premium -->
+                    <article class="package-item">
+                        <div class="card package-card">
+                            <h2>Premium</h2>
+                            <p class="muted small">Mais completo</p>
+                            <p>
+                                Para quem busca uma festa dos sonhos com mais personalização e
+                                zero preocupação.
+                            </p>
+
+                            <ul class="package-list">
+                                <li>Estrutura completa do espaço e equipe</li>
+                                <li>Entrada, salgados, assados e finger food (petiscos)</li>
+                                <li>Doces, bolo, lanchonete kids e bebidas</li>
+                                <li>Mesa de café e carrinho de guloseimas</li>
+                                <li>Festa personalizada, doces decorados e kit papelaria</li>
+                                <li>Vídeo retrospectiva e cobertura fotográfica</li>
+                            </ul>
+
+                            <div class="package-footer">
+                                <p>
+                                    <strong>Duração:</strong> 3h + 30min em dias úteis / 4h +
+                                    30min em fins de semana e feriados
+                                </p>
+                                <p><strong>Convidados:</strong> sob consulta</p>
+                            </div>
+                        </div>
+
+                        <div class="package-action">
+                            <a class="btn package-link" href="pacote-premium.html">
+                                Saiba mais
+                            </a>
                         </div>
                     </article>
                 </div>
+                <section class="section">
+                    <div>
+                        <aside class="side-note pacotes-note">
+                            <h2>Informações importantes</h2>
 
-                <aside class="side-note" style="margin-top: 32px">
-                    <h2 align="center">Informações importantes</h2>
-                    <h3>Lista</h3>
-                    <ul class="package-list">
-                        <li>Pai, mãe e aniversariante não contabilizam.</li>
-                        <li>Crianças até 5 anos não contam.</li>
-                        <li>De 6 a 9 anos contam como meia.</li>
-                        <li>Convidados a partir de 10 anos são considerados pagantes.</li>
-                    </ul>
-                    <h3>Duração</h3>
-                    <ul class="package-list">
-                        <li>Festas nos pacotes Pocket e Premium que ocorrem de segunda à sexta-feira, tem duração de 3
-                            horas + 30 minutos de tolerância.</li>
-                        <li>Para final de semana e feriados, a duração é de 4 horas + 30 minutos de tolerância.</li>
-                    </ul>
-                    <h3>Formas de Pagamento</h3>
-                    <ul class="package-list">
-                        <li>Entrada de 30% do valor total para reserva da data.</li>
-                        <li>Saldo parcelado mensalmente, conforme acordo prévio.</li>
-                        <li>Cartão de crédito em até 3x sem juros.</li>
-                        <li>Desconto de 5% para pagamento à vista.</li>
-                    </ul>
-                </aside>
+                            <h3>Contagem de convidados</h3>
+                            <ul class="package-list">
+                                <li>Pai, mãe e aniversariante não contabilizam.</li>
+                                <li>Crianças até 5 anos não contam.</li>
+                                <li>De 6 a 9 anos contam como meia.</li>
+                                <li>Convidados a partir de 10 anos são considerados pagantes.</li>
+                            </ul>
+
+                            <div class="divider" role="separator" aria-hidden="true"></div>
+
+                            <h3>Duração</h3>
+                            <ul class="package-list">
+                                <li>
+                                    Festas dos pacotes Pocket e Premium, de segunda à sexta-feira,
+                                    têm duração de 3 horas + 30 minutos de tolerância.
+                                </li>
+                                <li>
+                                    Em finais de semana e feriados, a duração é de 4 horas + 30
+                                    minutos de tolerância.
+                                </li>
+                            </ul>
+
+                            <div class="divider" role="separator" aria-hidden="true"></div>
+
+                            <h3>Formas de pagamento</h3>
+                            <ul class="package-list">
+                                <li>Entrada de 30% do valor total para reserva da data.</li>
+                                <li>Saldo parcelado mensalmente, conforme acordo prévio.</li>
+                                <li>Cartão de crédito em até 3x sem juros.</li>
+                                <li>Desconto de 5% para pagamento à vista.</li>
+                            </ul>
+                            <ul class="package-list">
+                                <h3 style="text-align: center;">
+                                    <strong>Orçamento válido por até 15 dias</strong>
+                                </h3>
+                        </aside>
+                    </div>
+                </section>
             </div>
         </section>
     </main>
@@ -208,7 +229,6 @@
                 <p class="small muted">
                     © <span id="year"></span> 31 MEU Buffet Infantil.
                 </p>
-                <a class="small" href="#topo">Voltar ao topo</a>
             </div>
 
             <div class="footer-socials">

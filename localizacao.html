@@ -20,6 +20,7 @@
     </script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/localizacao.css" />
 
     <script defer src="assets/js/config.js"></script>
     <script defer src="assets/js/main.js"></script>
@@ -76,192 +77,119 @@
 
     <main id="conteudo" tabindex="-1">
       <!-- HERO -->
-      <section
-        class="section"
-        style="
-          background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-          color: white;
-          padding: 60px 20px;
-          text-align: center;
-        "
-      >
+      <section class="section page-hero location-hero">
         <div class="container">
-          <h1 style="font-size: 40px; margin-bottom: 16px; font-weight: 700">
-            Localização
-          </h1>
-          <p style="font-size: 18px; opacity: 0.95">
-            Visite-nos em nosso endereço em Curitiba.
-          </p>
+          <header class="section-head">
+            <h1>Localização</h1>
+            <p>Visite-nos em nosso endereço em Curitiba.</p>
+          </header>
         </div>
       </section>
-
+    
       <!-- MAPA E INFORMAÇÕES -->
       <section class="section" aria-labelledby="locTitle">
-        <div class="container two-col">
-          <div>
+        <div class="container location-layout">
+          <div class="location-main">
             <header class="section-head">
               <h2 id="locTitle">Onde nos encontrar</h2>
               <p class="muted">
-                Clique em "Como chegar" para abrir as direções no Google Maps.
+                Clique em “Como chegar” para abrir as direções no Google Maps.
               </p>
             </header>
-
+    
             <div class="map">
-              <iframe
-                title="Mapa - 31 MEU Buffet Infantil"
+              <iframe title="Mapa - 31 MEU Buffet Infantil"
                 src="https://www.google.com/maps?q=R.%20Benjamin%20Zampieri%20Parizi%2C%2076%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen
-              ></iframe>
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
             </div>
           </div>
-
-          <aside class="side-note" aria-label="Informações de localização">
-            <h3>Endereço Completo</h3>
-            <p class="muted" style="margin-bottom: 16px">
+    
+          <aside class="location-card" aria-label="Informações de localização">
+            <h3>Endereço completo</h3>
+            <p class="muted">
               <strong>Rua Benjamin Zampieri Parizi, 76</strong><br />
               Santa Felicidade, Curitiba - PR<br />
               CEP: 82400-090
             </p>
-
-            <a
-              class="btn full"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.google.com/maps/dir/?api=1&destination=R.%20Benjamin%20Zampieri%20Parizi%2C%2076%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090"
-            >
-              COMO CHEGAR
+    
+            <a class="btn full" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/dir/?api=1&destination=R.%20Benjamin%20Zampieri%20Parizi%2C%2076%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090">
+              Como chegar
             </a>
-
+    
             <div class="divider" role="separator" aria-hidden="true"></div>
-
-            <h3>Contato</h3>
-            <p class="small muted" style="margin-bottom: 8px">
-              <strong>Telefone/WhatsApp:</strong><br />
-              <a href="tel:+5541997249945">(41) 99724-9945</a>
-            </p>
-
-            <div class="divider" role="separator" aria-hidden="true"></div>
-
-            <h3>Horário de Atendimento</h3>
-            <p class="small muted">
-              <strong>Segunda a Domingo:</strong><br />
-              9h00 às 22h00
-            </p>
-
-            <a
-              href="#"
-              onclick="
-                openWhatsApp('Olá! Gostaria de agendar uma visita ao espaço.');
-                return false;
-              "
-              class="btn full primary"
-              style="margin-top: 16px"
-            >
-              AGENDAR VISITA
+    
+            <div class="location-info">
+              <div class="location-info-item">
+                <strong>Contato</strong>
+                <a href="#" onclick="openWhatsApp('Olá! Gostaria de agendar uma visita.'); return false;">(41) 99724-9945</a>
+              </div>
+    
+              <div class="location-info-item">
+                <strong>Horário de atendimento</strong>
+                <p class="small muted">Segunda a Domingo: 9h00 às 22h00</p>
+              </div>
+            </div>
+    
+            <a href="#" onclick="openWhatsApp('Olá! Gostaria de agendar uma visita.'); return false;"
+              class="btn full location-visit-btn">
+              Agendar visita
             </a>
           </aside>
         </div>
       </section>
-
-      <!-- INFORMAÇÕES ADICIONAIS -->
+    
+      <!-- INFORMAÇÕES ÚTEIS -->
       <section class="section alt" aria-labelledby="infoTitle">
         <div class="container">
           <header class="section-head">
-            <h2 id="infoTitle">Informações Úteis</h2>
+            <h2 id="infoTitle">Informações úteis</h2>
           </header>
-
-          <div
-            style="
-              display: grid;
-              gap: 24px;
-              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            "
-          >
-            <div
-              style="
-                padding: 24px;
-                background: #f3f4f6;
-                border-radius: 8px;
-                border-left: 4px solid #00bcd4;
-              "
-            >
-              <h3 style="margin-bottom: 12px; color: #1f2937">
-                ♿ Acessibilidade
-              </h3>
-              <p class="muted" style="margin: 0">
-                Espaço preparado para receber pessoas com mobilidade reduzida,
-                com mais conforto e praticidade para toda a família.
+    
+          <div class="grid-3 location-grid">
+            <article class="card location-info-card">
+              <h3>♿ Acessibilidade</h3>
+              <p>
+                Espaço preparado para receber pessoas com mobilidade reduzida, com
+                mais conforto e praticidade para toda a família.
               </p>
-            </div>
-
-            <div
-              style="
-                padding: 24px;
-                background: #f3f4f6;
-                border-radius: 8px;
-                border-left: 4px solid #00bcd4;
-              "
-            >
-              <h3 style="margin-bottom: 12px; color: #1f2937">
-                🚗 Localização
-              </h3>
-              <p class="muted" style="margin: 0">
-                Facilmente acessível pela região de Santa Felicidade, próximo às
-                principais vias (Av. Manoel Ribas e R. Via Vento).
+            </article>
+    
+            <article class="card location-info-card">
+              <h3>🚗 Localização</h3>
+              <p>
+                Fácil acesso na região de Santa Felicidade, próximo às principais
+                vias e com localização simples de encontrar pelo Google Maps.
               </p>
-            </div>
-
-            <div
-              style="
-                padding: 24px;
-                background: #f3f4f6;
-                border-radius: 8px;
-                border-left: 4px solid #00bcd4;
-              "
-            >
-              <h3 style="margin-bottom: 12px; color: #1f2937">
-                🛎️ Atendimento
-              </h3>
-              <p class="muted" style="margin: 0">
-                Nossa equipe está pronta para receber você e sua família com
-                atenção, orientação e um ambiente tranquilo e acolhedor.
+            </article>
+    
+            <article class="card location-info-card">
+              <h3>🛎️ Atendimento</h3>
+              <p>
+                Nossa equipe está pronta para receber você e sua família com atenção,
+                orientação e um ambiente acolhedor.
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
-
+    
       <!-- CTA FINAL -->
-      <section class="section cta-section">
+      <section class="section cta-section location-cta">
         <div class="container">
-          <h2>Pronto para nos visitar?</h2>
-          <p>Abra o mapa, visite-nos ou agende uma visita pelo WhatsApp.</p>
-          <div
-            style="
-              display: flex;
-              gap: 12px;
-              justify-content: center;
-              flex-wrap: wrap;
-            "
-          >
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=R.%20Benjamin%20Zampieri%20Parizi%2C%2076%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn"
-            >
-              Abrir no Mapa
+          <header class="section-head">
+            <h2>Pronto para nos visitar?</h2>
+            <p>Abra o mapa, visite-nos ou agende uma visita pelo WhatsApp.</p>
+          </header>
+    
+          <div class="location-actions">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=R.%20Benjamin%20Zampieri%20Parizi%2C%2076%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082400-090"
+              target="_blank" rel="noopener noreferrer" class="btn">
+              Abrir no mapa
             </a>
-            <a
-              href="#"
-              onclick="
-                openWhatsApp('Olá! Gostaria de agendar uma visita.');
-                return false;
-              "
-              class="btn btn-outline"
-            >
+    
+            <a href="#" onclick="openWhatsApp('Olá! Gostaria de agendar uma visita.'); return false;"
+              class="btn btn-outline">
               Chamar no WhatsApp
             </a>
           </div>
@@ -275,7 +203,6 @@
           <p class="small muted">
             © <span id="year"></span> 31 MEU Buffet Infantil.
           </p>
-          <a class="small" href="#topo">Voltar ao topo</a>
         </div>
 
         <div class="footer-socials">

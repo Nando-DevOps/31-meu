@@ -9,17 +9,22 @@
   <meta name="description" content="Perguntas frequentes sobre o 31 MEU Buffet Infantil." />
   <meta name="theme-color" content="#00bcd4" />
 
+  <meta property="og:title" content="FAQ - 31 MEU Buffet Infantil" />
+  <meta property="og:description" content="Esclareça suas dúvidas sobre pacotes, agendamento e atendimento." />
+  <meta property="og:type" content="website" />
+
   <script>
     document.documentElement.classList.add("js");
   </script>
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/faq.css" />
   <script defer src="assets/js/config.js"></script>
   <script defer src="assets/js/main.js"></script>
 </head>
 
 <body>
-  <a class="skip-link" href="#conteudo" aria-label="Pular para o conteúdo">↑</a>
+  <a class="skip-link" href="#conteudo" aria-label="Pular para o conteúdo" title="Pular para o conteúdo">↑</a>
 
   <header class="site-header" id="topo">
     <div class="container header-inner">
@@ -31,6 +36,7 @@
 
       <div class="header-actions">
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+          <span class="sr-only">Abrir menu</span>
           ☰
         </button>
       </div>
@@ -41,7 +47,7 @@
           <li><a href="galeria.html">Galeria</a></li>
           <li><a href="pacotes.html">Pacotes</a></li>
           <li><a href="localizacao.html">Localização</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="contato.html" class="nav-cta">Contato</a></li>
         </ul>
@@ -51,78 +57,98 @@
 
   <main id="conteudo" tabindex="-1">
     <!-- HERO -->
-    <section class="section" style="
-          background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-          color: white;
-          padding: 60px 20px;
-          text-align: center;
-        ">
+    <section class="section faq-hero">
       <div class="container">
-        <h1 style="font-size: 40px; margin-bottom: 16px; font-weight: 700">
-          Perguntas Frequentes
-        </h1>
-        <p style="font-size: 18px; opacity: 0.95">
-          Esclareça suas dúvidas sobre nossos serviços e agendamento.
-        </p>
+        <header class="section-head">
+          <h1>Dúvidas comuns</h1>
+          <p>
+            Reunimos aqui as perguntas mais frequentes para facilitar seu
+            atendimento.
+          </p>
+        </header>
       </div>
+    </section>
 
-      </header>
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="faqTitle">
+      <div class="container faq-wrap">
+        <div class="faq">
+          <details class="faq-item">
+            <summary>Qual a capacidade do espaço?</summary>
+            <div class="faq-body">
+              Nosso espaço acomoda até 80 pessoas entre adultos e crianças.
+              Informe o número de convidados no momento do orçamento.
+            </div>
+          </details>
 
-      <div class="faq">
-        <details class="faq-item">
-          <summary>Qual a capacidade do espaço?</summary>
-          <div class="faq-body">
-            Nosso espaço acomoda até 80 pessoas (adultos + crianças).
-            Informe o número de convidados no orçamento.
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>O que está incluso nos pacotes?</summary>
+            <div class="faq-body">
+              Os pacotes variam conforme a proposta da festa e podem incluir
+              estrutura do espaço, gastronomia, decoração e serviços de apoio.
+              Consulte os detalhes na página de pacotes ou fale com a nossa
+              equipe.
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>O que está incluso nos pacotes?</summary>
-          <div class="faq-body">
-            Cada pacote inclui: espaço climatizado, decoração,
-            mesas/cadeiras, brinquedos e buffet. Consulte detalhes ao entrar
-            em contato.
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>Como funciona o orçamento?</summary>
+            <div class="faq-body">
+              Após o contato, enviamos um orçamento personalizado com base na
+              data desejada, idade da criança, número de convidados e pacote
+              escolhido.
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>Como funciona o orçamento?</summary>
-          <div class="faq-body">
-            Após entrar em contato, forneceremos um orçamento personalizado
-            baseado em: data, idade da criança, número de convidados e
-            pacote escolhido.
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>Vocês oferecem decoração personalizada?</summary>
+            <div class="faq-body">
+              Sim. Trabalhamos com temas variados e opções personalizadas,
+              conforme o pacote e a proposta da comemoração.
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>Vocês oferecem decoração personalizada?</summary>
-          <div class="faq-body">
-            Sim! Oferecemos decorações com temas variados. Consulte
-            disponibilidade ao entrar em contato.
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>Qual é a antecedência mínima para agendar?</summary>
+            <div class="faq-body">
+              Recomendamos entrar em contato com pelo menos 15 dias de
+              antecedência, mas a disponibilidade pode variar de acordo com a
+              data.
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>Qual é a antecedência mínima para agendar?</summary>
-          <div class="faq-body">
-            Recomendamos no mínimo 15 dias de antecedência, mas consulte a
-            disponibilidade para sua data.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Posso trazer meu próprio bolo/alimentos?</summary>
-          <div class="faq-body">
-            Consulte nossa política. Converse conosco para detalhes sobre
-            alimentos trazidos de fora.
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>Posso levar bolo ou alimentos de fora?</summary>
+            <div class="faq-body">
+              Consulte nossa política no momento do atendimento. Alguns itens
+              podem depender das condições do pacote contratado.
+            </div>
+          </details>
+        </div>
       </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section alt faq-cta">
+      <div class="container">
+        <header class="section-head">
+          <h2>Ficou com alguma dúvida?</h2>
+          <p>
+            Consulte os pacotes disponíveis e fale com a nossa equipe para obter mais informações.
+          </p>
+        </header>
+
+        <div class="faq-actions">
+          <a href="pacotes.html" class="btn">Ver pacotes</a>
+          <a href="#"
+            onclick="openWhatsApp('Olá! Tenho algumas dúvidas sobre os pacotes e gostaria de mais informações.'); return false;"
+            class="btn btn-outline">
+            Chamar no WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   </main>
-  <!-- FAQ moved to faq.html -->
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -130,7 +156,6 @@
         <p class="small muted">
           © <span id="year"></span> 31 MEU Buffet Infantil.
         </p>
-        <a class="small" href="#topo">Voltar ao topo</a>
       </div>
 
       <div class="footer-socials">
@@ -138,7 +163,7 @@
           aria-label="Instagram" class="social-link" title="Visite nosso Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path
-              d="M7.8 2h8.4C19.4 2 22 4.6 22 8.2v8.4c0 3.6-2.6 6.2-6.2 6.2H7.8C4.2 20.4 2 17.8 2 14.2V8.2C2 4.6 4.6 2 8.2 2z M7.8 4c-2.4 0-4.2 1.8-4.2 4.2v8.4c0 2.4 1.8 4.2 4.2 4.2h8.4c2.4 0 4.2-1.8 4.2-4.2V8.2c0-2.4-1.8-4.2-4.2-4.2H7.8z M12 6.5c3 0 5.5 2.5 5.5 5.5s-2.5 5.5-5.5 5.5-5.5-2.5-5.5-5.5 2.5-5.5 5.5-5.5z M12 8.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z M17.5 5.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5 .7-1.5 1.5-1.5z" />
+              d="M7.8 2h8.4C19.4 2 22 4.6 22 8.2v8.4c0 3.6-2.6 6.2-6.2 6.2H7.8C4.2 20.4 2 17.8 2 14.2V8.2C2 4.6 4.6 2 8.2 2z M7.8 4c-2.4 0-4.2 1.8-4.2 4.2v8.4c0 2.4 1.8 4.2 4.2 4.2h8.4c2.4 0 4.2-1.8 4.2-4.2V8.2c0-2.4-1.8-4.2-4.2-4.2H7.8z M12 6.5c3 0 5.5 2.5 5.5 5.5s-2.5 5.5-5.5 5.5-5.5-2.5-5.5-5.5 2.5-5.5 5.5-5.5z M12 8.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z M17.5 5.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z" />
           </svg>
         </a>
 
