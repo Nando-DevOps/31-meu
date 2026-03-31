@@ -167,7 +167,7 @@ Navegador	Suporte
 Chrome	    ✅
 Firefox	    ✅
 Safari	    ✅
-Edge	    ✅
+Edge	      ✅
 Mobile	    ✅
 
 ### 🧠 Aprendizados do Projeto
