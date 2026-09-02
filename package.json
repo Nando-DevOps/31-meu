@@ -1,0 +1,9 @@
+{
+  "name": "31-meu",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo Tests will be added during the React/Vite migration",
+    "build": "echo Build will be enabled during the React/Vite migration"
+  }
+}
